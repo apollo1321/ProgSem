@@ -11,7 +11,7 @@ int main()
 
     txSetColor      (RGB ( 96, 171, 255));
     txSetFillColor  (RGB ( 96, 171, 255));
-    txRectangle ( 0, 103, 800, 170);
+    txRectangle (  0, 103, 800, 170);
 
     txSetColor      (RGB (118, 183, 255));
     txSetFillColor  (RGB (118, 183, 255));
@@ -114,7 +114,7 @@ int main()
     txLine (400, 101, 409, 101);
     txLine (417, 101, 434, 101);
 
-    txSetColor      (RGB (  0,   0,   0), 1);
+    txSetColor      (RGB (  0,   0,   0));
     txSetFillColor  (RGB (  0,   0,   0));
 
     POINT LandingGear[11] = {{392, 363}, {392, 407}, {365, 439},
@@ -127,7 +127,7 @@ int main()
     txLine (392, 391, 378, 423);
     txLine (417, 391, 432, 423);
 
-    txSetColor      (RGB (  0,   0,   0), 1);
+    txSetColor      (RGB (  0,   0,   0));
 
     txLine (393, 424, 396, 421);
     txLine (400, 424, 397, 421);
@@ -141,7 +141,7 @@ int main()
     txLine (416, 424, 413, 421);
     txLine (410, 423, 415, 423);
 
-    txSetColor      (RGB (255,   0,   0), 1);
+    txSetColor      (RGB (255,   0,   0));
     txLine (392, 430, 394, 427);
     txLine (394, 427, 396, 430);
     txLine (396, 430, 399, 428);
@@ -153,7 +153,7 @@ int main()
     txLine (408, 431, 412, 428);
     txLine (412, 428, 418, 431);
 
-    txSetColor      (RGB ( 30,  12,  143), 1);
+    txSetColor      (RGB ( 30,  12,  143));
     txSelectFont ("Arial", 28, 0, FW_BOLD);
     txDrawText (392, 142, 418, 348, "S\nP\nA\nC\nE\nX");
 
