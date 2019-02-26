@@ -1,17 +1,37 @@
 #include "TXLib.h"
 
+void drawEnv ();
+void drawRocket ();
+void drawSun ();
+void drawCloud1 ();
+void drawCloud2 ();
+void drawLandPlatf ();
+
+
 int main()
     {
     txCreateWindow (800, 600);
 
+    drawEnv ();
+    drawSun ();
+    drawCloud1 ();
+    drawCloud2 ();
+    drawLandPlatf ();
+    drawRocket ();
 
+    return 0;
+    }
+
+
+void drawEnv ()
+    {
     txSetColor      (RGB ( 62, 154, 255));
     txSetFillColor  (RGB ( 62, 154, 255));
     txRectangle (  0,   0, 800, 103);
 
     txSetColor      (RGB ( 96, 171, 255));
     txSetFillColor  (RGB ( 96, 171, 255));
-    txRectangle ( 0, 103, 800, 170);
+    txRectangle (  0, 103, 800, 170);
 
     txSetColor      (RGB (118, 183, 255));
     txSetFillColor  (RGB (118, 183, 255));
@@ -46,8 +66,11 @@ int main()
     txRectangle (513, 499, 531, 509);
     txRectangle (600, 548, 617, 558);
     txRectangle (726, 527, 743, 537);
+    }
 
 
+void drawLandPlatf ()
+    {
     txSetColor      (RGB ( 83,  83,  83));
     txSetFillColor  (RGB ( 83,  83,  83));
     txRectangle (287, 470, 513, 500);
@@ -68,8 +91,11 @@ int main()
     txRectangle (331, 470, 341, 483);
     txRectangle (457, 470, 467, 483);
     txRectangle (382, 470, 415, 477);
+    }
 
 
+void drawCloud1 ()
+    {
     txSetColor      (RGB (220, 237, 255));
     txSetFillColor  (RGB (220, 237, 255));
 
@@ -79,6 +105,13 @@ int main()
     txRectangle ( 41, 134, 193, 150);
     txRectangle ( 62, 150, 166, 163);
     txRectangle ( 84, 163, 147, 167);
+    }
+
+
+void drawCloud2 ()
+    {
+    txSetColor      (RGB (220, 237, 255));
+    txSetFillColor  (RGB (220, 237, 255));
 
     txRectangle (615, 134, 700, 141);
     txRectangle (583, 141, 734, 157);
@@ -86,8 +119,10 @@ int main()
     txRectangle (583, 175, 735, 191);
     txRectangle (604, 191, 708, 204);
     txRectangle (626, 204, 689, 208);
+    }
 
-
+void drawSun ()
+    {
     txSetColor      (RGB (255, 255,   0));
     txSetFillColor  (RGB (255, 255,   0));
 
@@ -103,8 +138,10 @@ int main()
     txLine (775, 50, 772, 57);
     txLine (785, 52, 786, 56);
     txLine (794, 48, 797, 54);
+    }
 
-
+void drawRocket ()
+    {
     txSetColor      (RGB (235, 234, 234));
     txSetFillColor  (RGB (235, 234, 234));
     txRectangle (392,  88, 418, 421);
@@ -156,7 +193,4 @@ int main()
     txSetColor      (RGB ( 30,  12,  143), 1);
     txSelectFont ("Arial", 28, 0, FW_BOLD);
     txDrawText (392, 142, 418, 348, "S\nP\nA\nC\nE\nX");
-
-
-    return 0;
     }
