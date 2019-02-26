@@ -1,11 +1,18 @@
 #include "TXLib.h"
 
 void drawEnv ();
-void drawRocket ();
-void drawSun ();
-void drawCloud1 ();
-void drawCloud2 ();
-void drawLandPlatf ();
+
+//Pivot is left top point of the rocket
+void drawRocket (int x, int y);
+
+//Pivot is central point of circle
+void drawSun (int x, int y);
+
+//Pivot is left top point of box that fit the cloud
+void drawCloud (int x, int y);
+
+//Pivot is left top point of the platform
+void drawLandPlatf (int x, int y);
 
 
 int main()
@@ -13,11 +20,11 @@ int main()
     txCreateWindow (800, 600);
 
     drawEnv ();
-    drawSun ();
-    drawCloud1 ();
-    drawCloud2 ();
-    drawLandPlatf ();
-    drawRocket ();
+    drawSun (780, 20);
+    drawCloud (100, 200);
+    drawCloud (500, 140);
+    drawRocket (390, 88);
+    drawLandPlatf (290, 470);
 
     return 0;
     }
@@ -69,128 +76,116 @@ void drawEnv ()
     }
 
 
-void drawLandPlatf ()
+void drawLandPlatf (int x, int y)
     {
     txSetColor      (RGB ( 83,  83,  83));
     txSetFillColor  (RGB ( 83,  83,  83));
-    txRectangle (287, 470, 513, 500);
+    txRectangle (x      , y, x + 226, y + 30);
 
     txSetColor      (RGB (102, 100, 102));
     txSetFillColor  (RGB (102, 102, 102));
-    txRectangle (299, 470, 499, 490);
+    txRectangle (x +  12, y, x + 212, y + 20);
 
     txSetColor      (RGB (199, 195,   4));
     txSetFillColor  (RGB (199, 195,   4));
-    txRectangle (299, 470, 309, 490);
-    txRectangle (489, 470, 499, 490);
-    txRectangle (363, 470, 373, 483);
-    txRectangle (425, 470, 435, 483);
+    txRectangle (x +  12, y, x +  22, y + 20);
+    txRectangle (x + 202, y, x + 212, y + 20);
+    txRectangle (x +  76, y, x +  86, y + 13);
+    txRectangle (x + 138, y, x + 148, y + 13);
 
     txSetColor      (RGB (235, 234, 234));
     txSetFillColor  (RGB (235, 234, 234));
-    txRectangle (331, 470, 341, 483);
-    txRectangle (457, 470, 467, 483);
-    txRectangle (382, 470, 415, 477);
+    txRectangle (x +  44, y, x +  54, y + 13);
+    txRectangle (x + 170, y, x + 180, y + 13);
+    txRectangle (x +  95, y, x + 128, y +  7);
     }
 
 
-void drawCloud1 ()
+void drawCloud (int x, int y)
     {
     txSetColor      (RGB (220, 237, 255));
     txSetFillColor  (RGB (220, 237, 255));
 
-    txRectangle ( 73,  93, 158, 100);
-    txRectangle ( 41, 100, 192, 116);
-    txRectangle ( 22, 116, 206, 134);
-    txRectangle ( 41, 134, 193, 150);
-    txRectangle ( 62, 150, 166, 163);
-    txRectangle ( 84, 163, 147, 167);
+    txRectangle ( x + 51, y     , x + 136, y + 7 );
+    txRectangle ( x + 19, y + 7 , x + 170, y + 23);
+    txRectangle ( x     , y + 23, x + 184, y + 41);
+    txRectangle ( x + 19, y + 41, x + 171, y + 57);
+    txRectangle ( x + 40, y + 57, x + 144, y + 70);
+    txRectangle ( x + 62, y + 70, x + 125, y + 74);
     }
 
 
-void drawCloud2 ()
-    {
-    txSetColor      (RGB (220, 237, 255));
-    txSetFillColor  (RGB (220, 237, 255));
-
-    txRectangle (615, 134, 700, 141);
-    txRectangle (583, 141, 734, 157);
-    txRectangle (564, 157, 748, 175);
-    txRectangle (583, 175, 735, 191);
-    txRectangle (604, 191, 708, 204);
-    txRectangle (626, 204, 689, 208);
-    }
-
-void drawSun ()
+void drawSun (int x, int y)
     {
     txSetColor      (RGB (255, 255,   0));
     txSetFillColor  (RGB (255, 255,   0));
 
-    txCircle (780, 20, 32);
+    txCircle (x, y, 32);
 
-    txLine (750,  5, 745,  2);
-    txLine (748, 14, 741, 14);
-    txLine (748, 21, 740, 21);
-    txLine (749, 26, 743, 29);
-    txLine (751, 32, 745, 36);
-    txLine (757, 40, 752, 45);
-    txLine (764, 45, 761, 51);
-    txLine (775, 50, 772, 57);
-    txLine (785, 52, 786, 56);
-    txLine (794, 48, 797, 54);
+    txLine (x - 30, y - 15, x - 35, y - 18);
+    txLine (x - 32, y -  6, x - 39, y - 6 );
+    txLine (x - 32, y +  1, x - 40, y + 1 );
+    txLine (x - 31, y +  6, x - 37, y + 9 );
+    txLine (x - 29, y + 12, x - 35, y + 16);
+    txLine (x - 23, y + 20, x - 28, y + 25);
+    txLine (x - 16, y + 25, x - 19, y + 31);
+    txLine (x -  5, y + 30, x -  8, y + 37);
+    txLine (x +  5, y + 32, x +  6, y + 36);
+    txLine (x + 14, y + 28, x + 17, y + 34);
     }
 
-void drawRocket ()
+
+void drawRocket (int x, int y)
     {
     txSetColor      (RGB (235, 234, 234));
     txSetFillColor  (RGB (235, 234, 234));
-    txRectangle (392,  88, 418, 421);
+    txRectangle (x,  y, x + 26, y + 333);
 
     txSetColor      (RGB (  0,   0,   0), 2);
-    txLine (375, 101, 392, 101);
-    txLine (400, 101, 409, 101);
-    txLine (417, 101, 434, 101);
+    txLine (x - 17, y + 13, x     , y + 13);
+    txLine (x +  8, y + 13, x + 17, y + 13);
+    txLine (x + 25, y + 13, x + 42, y + 13);
 
     txSetColor      (RGB (  0,   0,   0), 1);
     txSetFillColor  (RGB (  0,   0,   0));
 
-    POINT LandingGear[11] = {{392, 363}, {392, 407}, {365, 439},
-                             {392, 419}, {392, 420}, {417, 420},
-                             {417, 419}, {445, 439}, {417, 407},
-                             {417, 363}, {405, 398}};
+    POINT LandingGear[11] = {{x     , y + 275}, {x     , y + 319}, {x - 27, y + 351},
+                             {x     , y + 331}, {x     , y + 332}, {x + 25, y + 332},
+                             {x + 25, y + 331}, {x + 52, y + 351}, {x + 25, y + 319},
+                             {x + 25, y + 275}, {x + 13, y + 310}};
     txPolygon (LandingGear, 11);
 
     txSetColor      (RGB (  0,   0,   0), 2);
-    txLine (392, 391, 378, 423);
-    txLine (417, 391, 432, 423);
+    txLine (x     , y + 303, x - 14, y + 335);
+    txLine (x + 25, y + 303, x + 40, y + 335);
 
     txSetColor      (RGB (  0,   0,   0), 1);
 
-    txLine (393, 424, 396, 421);
-    txLine (400, 424, 397, 421);
-    txLine (394, 423, 399, 423);
+    txLine (x +  1, y + 336, x +  4, y + 333);
+    txLine (x +  8, y + 336, x +  5, y + 333);
+    txLine (x +  2, y + 335, x +  7, y + 335);
 
-    txLine (401, 424, 404, 421);
-    txLine (408, 424, 405, 421);
-    txLine (402, 423, 407, 423);
+    txLine (x +  9, y + 336, x + 12, y + 333);
+    txLine (x + 16, y + 336, x + 13, y + 333);
+    txLine (x + 10, y + 335, x + 15, y + 335);
 
-    txLine (409, 424, 412, 421);
-    txLine (416, 424, 413, 421);
-    txLine (410, 423, 415, 423);
+    txLine (x + 17, y + 336, x + 20, y + 333);
+    txLine (x + 24, y + 336, x + 21, y + 333);
+    txLine (x + 18, y + 335, x + 23, y + 335);
 
     txSetColor      (RGB (255,   0,   0), 1);
-    txLine (392, 430, 394, 427);
-    txLine (394, 427, 396, 430);
-    txLine (396, 430, 399, 428);
-    txLine (399, 428, 400, 431);
-    txLine (400, 431, 401, 428);
-    txLine (401, 428, 403, 431);
-    txLine (403, 431, 407, 428);
-    txLine (407, 428, 408, 431);
-    txLine (408, 431, 412, 428);
-    txLine (412, 428, 418, 431);
+    txLine (x     , y + 342, x +  2, y + 339);
+    txLine (x +  2, y + 339, x +  4, y + 342);
+    txLine (x +  4, y + 342, x +  7, y + 340);
+    txLine (x +  7, y + 340, x +  8, y + 343);
+    txLine (x +  8, y + 343, x +  9, y + 340);
+    txLine (x +  9, y + 340, x + 11, y + 343);
+    txLine (x + 11, y + 343, x + 15, y + 340);
+    txLine (x + 15, y + 340, x + 16, y + 343);
+    txLine (x + 16, y + 343, x + 20, y + 340);
+    txLine (x + 20, y + 340, x + 26, y + 343);
 
     txSetColor      (RGB ( 30,  12,  143), 1);
     txSelectFont ("Arial", 28, 0, FW_BOLD);
-    txDrawText (392, 142, 418, 348, "S\nP\nA\nC\nE\nX");
+    txDrawText (x, y + 54, x + 26, y + 260, "S\nP\nA\nC\nE\nX");
     }
